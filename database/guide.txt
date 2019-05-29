@@ -1,0 +1,54 @@
+
+
+1. Instal a server xampp , open server or any server you want
+2. Install composer yiiframework.com for windows ---> composerSetup.exe
+3. Clone the project to C:/xampp/htdocs
+4. Configure Virtual servers for windows
+
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@dummy-host2.example.com
+    DocumentRoot "C:/xampp/htdocs/task/web"
+    ServerName task
+    ErrorLog "logs/dummy-host2.example.com-error.log"
+    CustomLog "logs/dummy-host2.example.com-access.log" common
+</VirtualHost>
+
+
+
+C:\Windows\System32\drivers\etc\hosts
+
+	127.0.0.1       task
+
+
+5. Go to the directory of the project with command line and type --> composer update
+6. Create database with name ---> task ; Go to the project directory database and find task.sql and  import it to the server that you have installed
+7. Now you can use the app just type task/ in your browser
+
+
+Here are the examples of api requests both POST requests
+
+
+/////////Search
+
+http://task/api/logos/search
+
+{
+	"LogoSearch": {
+	"name": "new",
+	"tag_name": "new",
+	"category_id": "1"
+	}
+}
+
+
+//////////Download
+
+http://task/api/logos/download
+
+{
+	"picture": "2191682_10eb0.jpg"
+}
+
+
